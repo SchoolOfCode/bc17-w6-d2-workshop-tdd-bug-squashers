@@ -37,6 +37,9 @@ export function calculateScrabbleScore(word) {
   let score = 0;
   letters.forEach(function (letter) {
     const letterPoints = letterScores[letter];
+    if (letterPoints === undefined) {
+      throw new Error(`Invalid letter: ${letter}`);
+    }
     score = score + letterPoints;
   });
   return score;

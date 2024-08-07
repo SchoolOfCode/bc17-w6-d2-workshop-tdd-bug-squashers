@@ -12,4 +12,9 @@ test('score of each letter', () => {
   alphabet.forEach(letter => {
    expect(calculateScrabbleScore(letter)).toBe(letterScores[letter]) 
   });
+}); 
+test("throw an error if there the letter is outside A-Z", () => {
+  expect(() => {
+   calculateScrabbleScore("😎")
+  }).toThrow() 
 });
